@@ -39,9 +39,15 @@ Dataset yang digunakan untuk mendukung penelitian pada pembuatan sistem rekomend
 
 ### Exploratory Data Analysis
 Exploratory Data Analysis atau sering disingkat EDA merupakan proses investigasi awal pada data untuk menganalisis karakteristik, menemukan pola, anomali, dan memeriksa asumsi pada data. Setelah dilakukan Exploratory Data Analysis pada dataset yang digunakan, didapatkan kesimpulan sebagai berikut:
-- Dari total 4484 penulis dapat kita lihat Top-10 penulis dengan buku terbanyak yang telah ditulis. Author dengan buku terbanyak yang ditulis adalah Stephen King sebanyak 40 buku.
-- Vintage merupakan penerbit yang menerbitkan buku terbanyak dengan total 318 buku yang telah diterbitkan di bawah nama Vintage.
-- Dari total 27 bahasa, Inggris merupakan bahasa yang paling banyak digunakan pada buku yang ada di dataset dengan total 8908 buku yang ditulis dalam bahasa Inggris.
+- Dari total 4484 penulis dapat kita lihat Top-10 penulis dengan buku terbanyak yang telah ditulis. Author dengan buku terbanyak yang ditulis adalah Stephen King sebanyak 40 buku.  
+![authors](https://user-images.githubusercontent.com/74854925/191403572-9c7a5a0c-6010-40c1-9a40-50d1d402ad5b.png)
+
+- Vintage merupakan penerbit yang menerbitkan buku terbanyak dengan total 318 buku yang telah diterbitkan di bawah nama Vintage.  
+![publisher](https://user-images.githubusercontent.com/74854925/191403597-3a3e24ee-a6f1-489c-b72d-7fefa958a5b4.png)
+
+- Dari total 27 bahasa, Inggris merupakan bahasa yang paling banyak digunakan pada buku yang ada di dataset dengan total 8908 buku yang ditulis dalam bahasa Inggris.  
+![language](https://user-images.githubusercontent.com/74854925/191403618-fb39ec22-efa3-406c-ae04-80d5fba31e80.png)
+
 - Tahun 2006 merupakan tahun di mana buku paling banyak diterbitkan dengan total 1700 buku yang diterbitkan pada tahun tersebut.
 - Buku dengan judul Twilight menempati posisi teratas untuk buku dengan rating terbanyak yang diberikan.
 - Buku dengan judul Harry Potter and the Half-Blood Prince menempati posisi teratas untuk buku dengan rating tertinggi.
