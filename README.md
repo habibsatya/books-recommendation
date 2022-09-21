@@ -2,8 +2,6 @@
 
 ## Project Overview
 Buku merupakan jendela dunia. Dengan membaca buku tentu seseorang dapat memperoleh banyak ilmu yang bermanfaaat. Salah satu manfaat buku yaitu memperluas wawasan kita tentang dunia. Begitu pentingnya buku sehingga di era perkembangan teknologi saat ini kita bisa membaca buku secara online melalui internet[^1]. Namun seringkali setelah selesai membaca suatu buku, seseorang bingung akan membaca buku apa selanjutnya. Tentu tidak mungkin bagi seseorang untuk menelusuri buku satu per satu karena akan membuang-buang waktu. Oleh karena itu diperlukan suatu sistem yang dapat merekomendasikan buku apa yang perlu dibaca selanjutnya dengan cara melihat kemiripan buku yang telah dibaca sebelumnya dengan buku lainnya. Apalagi saat ini banyak sekali perpustakaan berbasis online yang sering dikunjungi oleh mahasiswa untuk mendapatkan referensi terkait dengan tugas atau penelitiannya[^2]. Dengan menggunakan _Machine Learning_, data-data riwayat baca buku pengguna dapat diproses menjadi sebuah sistem rekomendasi yang bisa menghasilkan rekomendasi buku-buku yang relevan kepada pengguna lainnya.  
-[^1]: [Pemanfaatan Buku Oleh Mahasiswa Sebagai Penunjang Aktivitas Akademik di Era Generasi Milenial](http://jurnal.uin-antasari.ac.id/index.php/pustakakarya/article/view/3710)  
-[^2]: [Model Klasifikasi Analisis Kepuasan Pengguna Perpustakaan Online Menggunakan K-Means dan Decission Tree](https://scholar.google.co.id/scholar_url?url=http://ejurnal.stmik-budidarma.ac.id/index.php/jurikom/article/download/3680/2426&hl=en&sa=X&ei=eHIqY5PfLPuSy9YP1Lyz8AQ&scisig=AAGBfm1NYL2GxbwFk7aY5cWKrf1b8jImVg&oi=scholarr)
 
 ## Business Understanding
 Saat ini, sistem rekomendasi menjadi teknik dan strategi yang sangat bagus bagi suatu perusahaan untuk mendapatkan profit yang lebih tinggi. Tidak terkecuali bagi perpustakaan online yang dapat menggunakan sistem rekomendasi tersebut untuk meningkatkan kepuasan pembaca dengan tetap memberikan buku-buku yang relevan dengan preferensi pembaca. Semakin puas seorang pengguna maka semakin setia juga pengguna tersebut menggunakan platformnya. Oleh karena itu diperlukan sistem rekomendasi yang bagus demi mengembangkan pelayanan dan kepuasan pengguna. Dengan menggunakan data pengguna yang ada, akan dilakukan proses untuk mengembangkan sebuah sistem rekomendasi yang dapat merekomendasikan buku yang relevan dengan apa yang sudah dibaca oleh pengguna.
@@ -69,19 +67,21 @@ Untuk memudahkan pengelompokan pada rating, akan dibuat kolom baru dengan nama "
 ### Creating New DataFrame
 Pada tahap ini, masing-masing kolom "rating_between" dan kolom "language" akan digunakan untuk membuat sebuah DataFrame baru. Kemudian kedua DataFrame tersebut akan digabungkan dengan kolom "average_rating" dan "ratings_count" untuk menghasilkan sebuah DataFrame baru dengan tujuan agar DataFrame yang diolah berisikan fitur-fitur yang paling berpengaruh dalam proses rekomendasi yaitu rating dan bahasa.
 
-## Modeling
-Untuk proyek kali ini, akan digunakan _Content Based Filtering_ pada sistem rekomendasinya. _Content Based Filtering_ akan memberikan rekomendasi buku berdasarkan rating yang telah diberikan sebelumnya untuk suatu buku. Dari data rating buku, kita akan mengidentifikasi buku-buku yang mirip dengan menggunakan algoritma K-Nearest Neighbor (KNN) untuk direkomendasikan ke pengguna. KNN adalah algoritma yang relatif sederhana dibandingkan dengan algoritma lain. Algoritma KNN menggunakan 'kesamaan fitur' untuk memprediksi nilai dari setiap data yang baru. Dengan kata lain, setiap data baru diberi nilai berdasarkan seberapa mirip titik tersebut dalam set pelatihan. KNN bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat (dengan k adalah sebuah angka positif). Nah, itulah mengapa algoritma ini dinamakan K-nearest neighbor (sejumlah k tetangga terdekat). KNN bisa digunakan untuk kasus klasifikasi dan regresi. Pada kali ini, kita akan menggunakannya untuk membuat sebuah sistem rekomendasi. Penjelasan untuk setiap parameter yang ada pada model KNN sebagai berikut:  
-- n_neighbors : merepresentasikan jumlah tetangga terdekat dari titik yang akan dihitung.  
-- weights : fungsi pembobotan yang akan digunakan dalam menghitung jarak antara tetangga terdekat dengan titik yang dimasukkan.   
-- algorithm : jenis algoritma yang akan digunakan untuk proses penghitungan tetangga terdekat.  
-- leaf_size : ukuran atau size yang mengontrol titik dalam node tertentu.  
-- p : power parameter untuk metrik yang menghitung jarak antara titik tertentu.  
-- metric : metrik yang digunakan pada tree.  
-- metric_params : keyword tambahan untuk metric function.  
-- n_jobs : banyaknya penugasan parallel untuk menjalankan pencarian tetangga terdekat. 
-
 ### Normalization
 Proses normalisasi dilakukan untuk menskalakan setiap fitur yang ada pada dataset ke dalam rentang tertentu. Penskalaan ini juga berfungsi untuk mengurangi bisa karena beberapa buku memiliki banyak fitur. Secara garis besar, akan dilakukan distribusi dari nilai pada setiap fitur ke dalam rentang nilai 0 sampai 1.
+
+## Modeling and Result
+Untuk proyek kali ini, akan digunakan _Content Based Filtering_ pada sistem rekomendasinya. _Content Based Filtering_ akan memberikan rekomendasi buku berdasarkan rating yang telah diberikan sebelumnya untuk suatu buku. Dari data rating buku, kita akan mengidentifikasi buku-buku yang mirip dengan menggunakan algoritma K-Nearest Neighbor (KNN) untuk direkomendasikan ke pengguna. KNN adalah algoritma yang relatif sederhana dibandingkan dengan algoritma lain. Algoritma KNN menggunakan 'kesamaan fitur' untuk memprediksi nilai dari setiap data yang baru. Dengan kata lain, setiap data baru diberi nilai berdasarkan seberapa mirip titik tersebut dalam set pelatihan. KNN bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat (dengan k adalah sebuah angka positif). Nah, itulah mengapa algoritma ini dinamakan K-nearest neighbor (sejumlah k tetangga terdekat). KNN bisa digunakan untuk kasus klasifikasi dan regresi. Pada kali ini, kita akan menggunakannya untuk membuat sebuah sistem rekomendasi. Penjelasan untuk setiap parameter yang ada pada model KNN sebagai berikut:  
+- n_neighbors : merepresentasikan jumlah tetangga terdekat dari titik yang akan dihitung, secara _default_ nilainya adalah 5.  
+- weights : fungsi pembobotan yang akan digunakan dalam menghitung jarak antara tetangga terdekat dengan titik yang dimasukkan, bisa diisi dengan _{'uniform', 'distance'} atau callable_, namun secara _default_ menggunakan _'uniform'_.   
+- algorithm : jenis algoritma yang akan digunakan untuk proses penghitungan tetangga terdekat, bisa diisi dengan *{'auto', 'ball_tree', 'kd_tree', 'brute'}*, namun secara _default_ menggunakan _'auto'_.  
+- leaf_size : ukuran atau size yang mengontrol titik dalam node tertentu, secara _default_ nilainya adalah 30.  
+- p : power parameter untuk metrik yang menghitung jarak antara titik tertentu, secara _default_ nilainya adalah 2.  
+- metric : metrik yang digunakan pada tree, secara _default_ akan menggunakan metrik _'minkowski'_.  
+- metric_params : keyword tambahan untuk metric function, secara _default_ nilainya adalah _None_.  
+- n_jobs : banyaknya penugasan parallel untuk menjalankan pencarian tetangga terdekat, secara _default_ nilainya adalah _None_. 
+
+Untuk model yang akan dibuat nanti, parameter yang digunakan adalah n_neighbors saja untuk mengatur berapa banyak jumlah tetangga terdekat yang akan diambil. Untuk parameter yang lain akan digunakan nilai _default_ saja.
 
 ### Tuning Parameter
 Proses _tuning parameter_ ini akan memasukkan data ke dalam model KNN dengan parameter n_neighbors=11 yang berarti kita akan mengambil 10 buku teratas yang memiliki kemiripan untuk direkomendasikan kepada pengguna. hal ini dilakukan karena buku pertama akan mengarah ke buku itu sendiri, oleh karena itu untuk mengambil 10 buku teratas kita akan melewati 1 buku pertama dan menyimpan 10 buku setelahnya dengan menggunakan nilai 11 pada parameter n_neighbors.
@@ -123,8 +123,11 @@ Pada tahap ini akan dilakukan evaluasi terhadap model yang telah dibuat. Jika pr
 
 Dari hasil evaluasi di atas, dapat dilihat buku-buku yang direkomendasikan memiliki nilai _cosine similarity_ yang hampir mendekati angka 1. Dapat disimpulkan bahwa sistem rekomendasi yang dibuat sudah bisa memberikan hasil rekomendasi yang relevan.
 
-
 ## Conclusion
 Berdasarkan percobaan yang telah dilakukan untuk membangun sebuah sistem rekomendasi, didapatkan kesimpulan sebagai berikut:
 1. Rating dan bahasa merupakan fitur yang paling berpengaruh pada dataset yang digunakan dalam membangun sebuah sistem rekomendasi. 
 2. Buku-buku yang direkomendasikan telah relevan dengan buku yang dijadikan sebagai acuan karena dari hasil pengujian menggunakan _cosine similarity_, seluruh buku yang direkomendasikan hampir mendekati angka 1 yang berarti buku-buku tersebut memiliki kemiripan dari segi fiturnya.
+
+## References
+[^1]: [Pemanfaatan Buku Oleh Mahasiswa Sebagai Penunjang Aktivitas Akademik di Era Generasi Milenial](http://jurnal.uin-antasari.ac.id/index.php/pustakakarya/article/view/3710)  
+[^2]: [Model Klasifikasi Analisis Kepuasan Pengguna Perpustakaan Online Menggunakan K-Means dan Decission Tree](https://scholar.google.co.id/scholar_url?url=http://ejurnal.stmik-budidarma.ac.id/index.php/jurikom/article/download/3680/2426&hl=en&sa=X&ei=eHIqY5PfLPuSy9YP1Lyz8AQ&scisig=AAGBfm1NYL2GxbwFk7aY5cWKrf1b8jImVg&oi=scholarr)
